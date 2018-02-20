@@ -1,0 +1,124 @@
+/*
+Simple Mobile Nav
+https://lorenaramonda.github.io/simple-mobile-nav/
+Author: Lorena Ramonda <http://lorena.ramonda.me>
+*/
+.mobile-nav {
+    background-color: white;
+    position: relative;
+    width: 100%;
+    z-index: 999;
+    border-bottom: solid 1px;
+    line-height: normal;
+}
+.mobile-nav a {
+    text-decoration: none;
+}
+.mobile-nav button {
+    width: 35px;
+    height: 30px;
+    margin: 0 5px;
+    vertical-align: middle;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.mobile-nav button, .mobile-nav button:active, .mobile-nav button:focus {
+    background: none;
+    border: none;
+    outline: none;
+}
+.mobile-nav button span, .mobile-nav button:before, .mobile-nav button:after {
+    font-size: 0;
+    text-indent: 200%;
+    display: block;
+    margin: 0 auto;
+    height: 2px;
+    background-color: black;
+}
+.mobile-nav button:before, .mobile-nav button:after {
+    content: '';
+    top: 5px;
+    position: absolute;
+    width: calc(100% - 10px);
+}
+.mobile-nav button:after {
+    top: auto;
+    bottom: 5px;
+}
+
+.mobile-nav .submenu .submenu {
+    padding-left: 0.5em;
+    position: relative;
+}
+
+
+.mobile-nav ul.main {
+    background-color: white;
+    transform: translateX(-100%);
+}
+.mobile-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.mobile-nav ul.main {
+    text-transform: uppercase;
+    font-weight: bold;
+    position: absolute;
+    top: calc(100% + 1px);
+    z-index: 100;
+    height: calc(100vh - 40px);
+    /*overflow: auto;*/
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.mobile-nav ul.main > li {
+    border-bottom: solid 1px #efefef;
+}
+.mobile-nav ul.submenu {
+    display: none;
+    text-transform: none;
+    font-weight: normal;
+    font-size: 0.95em;
+    /*position: fixed;*/
+    /*top: 0;*/
+    /*transform: translateX(100%);*/
+}
+.mobile-nav .has-submenu.open > ul.submenu {
+    display: block;
+}
+.mobile-nav ul a {
+    color: black;
+    line-height: 1.5;
+    padding: 10px;
+    display: block;
+}
+.mobile-nav .has-submenu.full > a:after, .mobile-nav .has-submenu > a span:after {
+    content: '+';
+    float: right;
+}
+.mobile-nav .has-submenu.full.open > a:after, .mobile-nav .has-submenu.open > a span:after {
+    content: '—';
+}
+
+.open-mobile-nav {
+    overflow: hidden;
+}
+.open-mobile-nav .mobile-nav button:before, .open-mobile-nav  .mobile-nav button:after {
+    display: none;
+}
+.open-mobile-nav .mobile-nav ul.main {
+    transform: translateX(0);
+}
+.stick-mobile-nav .mobile-nav {
+    top: 0;
+    position: fixed;
+    z-index: 999;
+}
