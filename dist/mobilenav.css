@@ -1,9 +1,14 @@
+/*
+Simple Mobile Nav
+https://lorenaramonda.github.io/simple-mobile-nav/
+Author: Lorena Ramonda <http://lorena.ramonda.me>
+*/
 .mobile-nav {
     background-color: white;
     position: relative;
     width: 100%;
     z-index: 999;
-    border-bottom: solid 1px #E75300;
+    border-bottom: solid 1px;
     line-height: normal;
 }
 .mobile-nav a {
@@ -29,7 +34,7 @@
     display: block;
     margin: 0 auto;
     height: 2px;
-    background-color: #E75300;
+    background-color: black;
 }
 .mobile-nav button:before, .mobile-nav button:after {
     content: '';
@@ -90,7 +95,7 @@
     display: block;
 }
 .mobile-nav ul a {
-    color: #E75300;
+    color: black;
     line-height: 1.5;
     padding: 10px;
     display: block;

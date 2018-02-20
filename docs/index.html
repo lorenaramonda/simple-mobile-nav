@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>Simple Mobile Nav</title>
   <link rel="stylesheet" href="style.css" type="text/css">
   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -54,7 +55,98 @@
 
   <main>
     <h1>Simple Mobile Nav</h1>
+
+    <p>Given the following markup:</p>
+
+    <pre>
+    &lt;nav role="navigation"&gt;
+    &lt;span&gt;Title&lt;/span&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  </pre>
+
+    <p>you can turn it into a mobile nav by inserting the script <code>mobilenav.jquery.js</code> <strong>after</strong> <a href="https://jquery.com/" target="_blank">jQuery</a> inclusion:</p>
+
+    <pre>
+    &lt;script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+    <strong>&lt;script src="mobilenav.jquery.js"&gt;&lt;/script&gt;</strong>
+  </pre>
+
+    <p>and after that init the mobile nav, possibly at the DOM ready:</p>
+
+    <pre>
+    &lt;script&gt;
+      $(document).ready( function () {
+
+          $('nav[role="navigation"]').mobilenav();
+
+      });
+    &lt;/script&gt;
+    </pre>
+
+    <p>The nav accepts two config parameters:</p>
+
+    <ul>
+      <li><strong>sticky</strong>: false (default) | true<br>
+        <em>stick the nav position to top while scrolling</em></li>
+      <li><strong>mainCategoryLinked</strong>: true (default) | false<br>
+        <em>if <code>true</code> every submenu will open by only clicking the + icon, if <code>false</code> the link will work all over the link item. Bear in mind that this will disallow menu item to be link to his refering page</em></li>
+    </ul>
+
+    <p>The script already adds the class "mobile-nav" to the element on which is initializ, in the example nav[role="navigation"], but it is possible that you see the unformatted menu for a while if run on the onready event of the DOM. To solve this you can simply add the class on the element directly into the markup.</p>
+
+    <pre>
+    &lt;nav role="navigation" <strong>class="mobile-nav"</strong>&gt;
+    </pre>
   </main>
+
+  <script>
+      $(document).ready( function () {
+
+          $('nav[role="navigation"]').mobilenav({
+              sticky: true
+          });
+
+      });
+  </script>
 
 </body>
 <html>

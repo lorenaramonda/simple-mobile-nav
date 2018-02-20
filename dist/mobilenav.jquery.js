@@ -1,3 +1,9 @@
+/*
+Simple Mobile Nav
+https://lorenaramonda.github.io/simple-mobile-nav/
+Author: Lorena Ramonda <http://lorena.ramonda.me>
+*/
+
 (function ( $ ) {
     $.fn.mobilenav = function (options) {
         var settings = $.extend({
