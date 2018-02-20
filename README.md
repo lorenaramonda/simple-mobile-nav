@@ -1,6 +1,8 @@
 # Simple Mobile Nav (plugin jQuery)
 Make a simple nav with list item suitable for small devices
 
+[Live Demo](https://lorenaramonda.github.io/simple-mobile-nav/)
+
 Given the following markup:
 
 ```
